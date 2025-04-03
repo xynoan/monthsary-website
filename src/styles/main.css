@@ -1,0 +1,745 @@
+/* Main Styles for Monthsary Website */
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #a5678e;
+    --bg-color: #ffeaee;
+    --text-color: #2c3e50;
+    --highlight-color: #fd79a8;
+    --light-color: #fff0f3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Cover Section */
+.cover {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffd1d1, #ffc8dd);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeInDown 1.5s;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    opacity: 0.9;
+    animation: fadeInUp 1.5s;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.scroll-indicator i {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Timeline Section */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.timeline-section {
+    position: relative;
+    margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.7s ease;
+    will-change: opacity, transform;
+}
+
+.timeline-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-section:nth-child(odd) .content {
+    margin-left: auto;
+    margin-right: 2rem;
+}
+
+.timeline-section:nth-child(even) .content {
+    margin-right: auto;
+    margin-left: 2rem;
+}
+
+.date {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--highlight-color);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.content {
+    position: relative;
+    width: 45%;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.content::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+
+.timeline-section:nth-child(odd) .content::before {
+    right: -30px;
+}
+
+.timeline-section:nth-child(even) .content::before {
+    left: -30px;
+}
+
+.content h2 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+}
+
+.growtopia-note {
+    background-color: var(--light-color);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    position: relative;
+    border-left: 4px solid var(--primary-color);
+}
+
+.growtopia-note::before {
+    content: '\201C';
+    font-size: 2rem;
+    font-family: Georgia, serif;
+    color: var(--primary-color);
+    opacity: 0.4;
+    position: absolute;
+    left: 10px;
+    top: -10px;
+}
+
+.image-container {
+    margin: 1.5rem 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+    width: 100%;
+    min-height: 300px;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    color: #888;
+}
+
+.image img {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    display: block;
+}
+
+.first-convo {
+    background-color: #f5f5f5;
+    border: 2px dashed var(--primary-color);
+    padding: 10px;
+}
+
+.reasons, .challenges-list, .traits {
+    margin: 1.5rem 0;
+}
+
+.reasons ul {
+    list-style: none;
+}
+
+.reasons li, .challenge, .trait {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.reasons li i, .challenge i, .trait i {
+    margin-right: 1rem;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.challenges-list, .traits {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.challenge, .trait {
+    background-color: var(--light-color);
+    padding: 1rem;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.challenge:hover, .trait:hover {
+    transform: translateY(-5px);
+}
+
+.highlight {
+    font-weight: bold;
+    color: var(--highlight-color);
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.book-image {
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.book-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.couple-image-container {
+    margin: 1.5rem auto;
+    text-align: center;
+    max-width: 90%;
+}
+
+.couple-image {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    background-color: var(--light-color);
+    padding: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--highlight-color);
+}
+
+.couple-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.image-caption {
+    font-style: italic;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.final-message {
+    text-align: center;
+}
+
+.signature {
+    margin-top: 2rem;
+    font-family: 'Dancing Script', cursive;
+}
+
+.name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin: 0.5rem 0;
+}
+
+.nicknames {
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.permanent-note {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: var(--light-color);
+    border-radius: 10px;
+    font-size: 0.9rem;
+    border-left: 4px solid var(--highlight-color);
+}
+
+.permanent-note i {
+    color: var(--secondary-color);
+    margin-right: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-section {
+        width: 100%;
+    }
+    
+    .date {
+        left: 30px;
+        transform: translateX(-50%);
+    }
+    
+    .content {
+        width: calc(100% - 80px);
+        margin-left: 80px !important;
+        margin-right: 0 !important;
+    }
+    
+    .timeline-section:nth-child(odd) .content::before,
+    .timeline-section:nth-child(even) .content::before {
+        left: -30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .content {
+        padding: 1.5rem;
+    }
+    
+    .content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline {
+        padding: 2rem 1rem;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .content {
+        width: calc(100% - 60px);
+        margin-left: 60px !important;
+    }
+}
+
+/* Animations for elements */
+.fade-in {
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.slide-up {
+    animation: slideUp 1s;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Music Player */
+.music-player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.music-toggle {
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 50px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
+}
+
+.music-toggle:hover {
+    transform: scale(1.05);
+    background-color: var(--light-color);
+}
+
+.music-toggle i {
+    color: var(--primary-color);
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.music-toggle i.fa-play {
+    color: var(--highlight-color);
+}
+
+.music-toggle i.music-note {
+    margin-left: 8px;
+    margin-right: 0;
+    font-size: 1rem;
+    animation: bounce 2s infinite;
+}
+
+.music-toggle.playing {
+    background-color: var(--primary-color);
+}
+
+.music-toggle.playing i,
+.music-toggle.playing .music-text {
+    color: white;
+}
+
+.music-toggle.playing i.fa-play {
+    display: none;
+}
+
+.music-toggle:not(.playing) i.fa-play {
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.music-text {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Personal Message */
+.personal-message {
+    min-height: 100vh;
+    background-color: white;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(135deg, #fff6f6, #ffebf5);
+}
+
+.message-content {
+    max-width: 800px;
+    background-color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border-left: 5px solid var(--highlight-color);
+}
+
+.message-content p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.message-content p:first-child {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+}
+
+.signature-line {
+    margin-top: 2rem;
+    text-align: right;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem !important;
+    color: var(--secondary-color);
+}
+
+.continue-button {
+    position: absolute;
+    bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+    background-color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.continue-button:hover {
+    transform: translateY(-5px);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.continue-button span {
+    margin-bottom: 0.5rem;
+}
+
+.continue-button i {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+}
+
+.continue-button:hover i {
+    color: white;
+}
+
+/* Conversation Styling */
+.conversation-container {
+    margin: 2rem 0;
+    background-color: var(--light-color);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.conversation {
+    margin-bottom: 1.5rem;
+}
+
+.message {
+    margin-bottom: 1rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    position: relative;
+    max-width: 85%;
+}
+
+.message p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.message .name {
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+.message .note {
+    font-style: italic;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    display: block;
+    margin-top: 0.3rem;
+}
+
+.message.kate {
+    background-color: #fff;
+    margin-left: auto;
+    border-bottom-right-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.message.me {
+    background-color: var(--primary-color);
+    color: white;
+    margin-right: auto;
+    border-bottom-left-radius: 2px;
+}
+
+.reflection {
+    font-style: italic;
+    text-align: center;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    border-left: 3px solid var(--secondary-color);
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+}
+
+/* Make sure the section is visible when it's at least 20% in view */
+@media (max-height: 900px) {
+    .timeline-section {
+        margin-bottom: 4rem;
+    }
+}
+
+.music-tooltip {
+    position: fixed;
+    padding: 8px 15px;
+    background-color: var(--highlight-color);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 1001;
+}
+
+.music-tooltip::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: transparent transparent var(--highlight-color) transparent;
+}
+
+.music-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0);
+} 

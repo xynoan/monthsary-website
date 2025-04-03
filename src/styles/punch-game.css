@@ -1,0 +1,375 @@
+/* Punch Game Styles */
+.punch-game {
+    max-width: 800px;
+    margin: 5rem auto;
+    text-align: center;
+    padding: 2rem;
+    background-color: #fff8f8;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid var(--highlight-color);
+}
+
+.punch-game h2 {
+    color: var(--secondary-color);
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.punch-game p {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.punch-count {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    background-color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.character {
+    width: 150px;
+    height: 150px;
+    background-color: #fff3f3;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 3px solid var(--primary-color);
+    transition: transform 0.1s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.character-face {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.face-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease;
+}
+
+.normal-face {
+    opacity: 1;
+}
+
+.punched-face {
+    opacity: 0;
+}
+
+.character.punched .normal-face {
+    opacity: 0;
+}
+
+.character.punched .punched-face {
+    opacity: 1;
+}
+
+/* Hide the cartoon eyes and mouth when using real images */
+.character.with-images .eyes,
+.character.with-images .mouth {
+    display: none;
+}
+
+.eyes {
+    display: flex;
+    gap: 20px;
+}
+
+.eye {
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.mouth {
+    width: 30px;
+    height: 10px;
+    border-bottom: 3px solid #333;
+    border-radius: 0 0 30px 30px;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+}
+
+.character.punched {
+    transform: translateX(10px) rotate(5deg);
+    animation: shake 0.5s;
+}
+
+.character.punched .eye:first-child {
+    height: 3px;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+
+.character.punched .mouth {
+    width: 25px;
+    height: 15px;
+    border-radius: 5px;
+    transform: rotate(10deg);
+}
+
+.punch-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+}
+
+.punch-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 107, 107, 0.4);
+    background-color: #ff5252;
+}
+
+.punch-button:active {
+    transform: translateY(1px);
+}
+
+.punch-message {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.punch-message.visible {
+    opacity: 1;
+    top: -50px;
+}
+
+/* Punch game animations */
+@keyframes shake {
+    0% { transform: translateX(0) rotate(0); }
+    20% { transform: translateX(-10px) rotate(-5deg); }
+    40% { transform: translateX(10px) rotate(5deg); }
+    60% { transform: translateX(-5px) rotate(-2deg); }
+    80% { transform: translateX(5px) rotate(2deg); }
+    100% { transform: translateX(0) rotate(0); }
+}
+
+@keyframes heartFly {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y)) scale(0);
+    }
+}
+
+.flying-heart {
+    position: absolute;
+    font-size: 24px;
+    pointer-events: none;
+    animation: heartFly 1s forwards;
+}
+
+@media (max-width: 768px) {
+    .punch-game {
+        padding: 1.5rem;
+        margin: 3rem auto;
+    }
+    
+    .punch-game h2 {
+        font-size: 2rem;
+    }
+    
+    .character {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+.punch-scene {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 250px;
+    position: relative;
+}
+
+/* Stickman styles */
+.stickman-container {
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 120px;
+    height: 200px;
+    z-index: 1;
+}
+
+.stickman {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.stickman-head {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ffebf2;
+    border: 2px solid #333;
+    overflow: hidden;
+}
+
+.stickman-head img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stickman-body {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 60px;
+    background-color: #333;
+}
+
+.stickman-arm-left {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    width: 2px;
+    height: 40px;
+    background-color: #333;
+    transform-origin: top left;
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+.stickman-arm-right {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    width: 2px;
+    height: 40px;
+    background-color: #333;
+    transform-origin: top left;
+    transform: rotate(-45deg);
+    transition: all 0.3s ease;
+}
+
+.stickman-leg-left {
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    width: 2px;
+    height: 50px;
+    background-color: #333;
+    transform-origin: top left;
+    transform: rotate(30deg);
+}
+
+.stickman-leg-right {
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    width: 2px;
+    height: 50px;
+    background-color: #333;
+    transform-origin: top left;
+    transform: rotate(-30deg);
+}
+
+.stickman.punching .stickman-arm-right {
+    height: 60px;
+    transform: rotate(-10deg);
+    animation: punchArm 0.5s;
+}
+
+@keyframes punchArm {
+    0% { transform: rotate(-45deg); height: 40px; }
+    50% { transform: rotate(-10deg); height: 60px; }
+    100% { transform: rotate(-45deg); height: 40px; }
+}
+
+/* Make sure the face images are visible */
+.face-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease;
+}
+
+.normal-face {
+    opacity: 1;
+}
+
+.punched-face {
+    opacity: 0;
+}
+
+.character.punched .normal-face {
+    opacity: 0;
+}
+
+.character.punched .punched-face {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .punch-scene {
+        height: 220px;
+    }
+    
+    .stickman-container {
+        width: 100px;
+        height: 180px;
+        left: 20%;
+    }
+} 

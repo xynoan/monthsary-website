@@ -1,0 +1,30 @@
+FILIPINO LOVE SONG INSTRUCTIONS:
+
+To add a romantic Filipino song to your monthsary website:
+
+1. Choose a romantic OPM (Original Pilipino Music) love song, such as:
+   - "Hanggang" by Wency Cornejo
+   - "Kahit Maputi Na Ang Buhok Ko" by Rey Valera  
+   - "Forevermore" by Side A
+   - "214" by Rivermaya
+   - "Ikaw" by Yeng Constantino
+   - "Torete" by Moonstar88
+   - "Hawak Kamay" by Yeng Constantino
+   - "Your Universe" by Rico Blanco
+
+2. Find or purchase an MP3 file of your chosen song (make sure you have rights to use it)
+
+3. Rename the MP3 file to "background-song.mp3"
+
+4. Save the file in the "public/music" folder of your website
+
+5. The music player is already set up in your website with:
+   - A button in the top-right corner that says "Play Music"
+   - Functionality to play/pause the song
+   - The song will loop continuously when playing
+
+6. Note: Due to browser autoplay restrictions, the music won't play automatically. 
+   The user will need to click the "Play Music" button to start the song.
+
+Important: Make sure you have the rights to use the song you choose, especially if you're 
+hosting this website online. Consider using royalty-free music if you're concerned about copyright. 

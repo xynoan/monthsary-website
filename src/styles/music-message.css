@@ -1,0 +1,90 @@
+/* Music Message Styles */
+.music-message {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    width: 350px;
+    padding: 20px;
+    z-index: 999;
+    transform: translateX(400px);
+    transition: transform 0.5s ease;
+    border-left: 5px solid var(--highlight-color);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.music-message.visible {
+    transform: translateX(0);
+}
+
+.quote-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quote-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.quote-text p {
+    font-style: italic;
+    margin-bottom: 15px;
+    text-align: center;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.song-playing {
+    font-weight: 500;
+    color: var(--primary-color);
+    background-color: #fff9fa;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px dashed var(--primary-color);
+    display: inline-block;
+    margin: 0 auto 20px;
+}
+
+.personal-note {
+    font-weight: bold;
+    color: var(--secondary-color);
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    font-size: 1.1rem;
+}
+
+.close-music-message {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 5px;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.close-music-message:hover {
+    opacity: 1;
+}
+
+@media (max-width: 480px) {
+    .music-message {
+        width: 90%;
+        right: 5%;
+        top: 70px;
+    }
+} 
